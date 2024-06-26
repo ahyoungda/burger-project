@@ -26,6 +26,22 @@
 
     </select>
 
+    <insert id="insertMenu" parameterType="com.burgerland.common.MenuDTO">
+
+        insert into menu(
+        menu_name,
+        menu_price,
+        category
+        ) values (
+        #{ menuName },
+        #{ menuPrice },
+        #{ category }
+        )
+
+
+    </insert>
+
+
 
 
 

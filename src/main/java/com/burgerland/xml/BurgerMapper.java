@@ -7,4 +7,6 @@ import java.util.List;
 public interface BurgerMapper {
 
     List<MenuDTO> viewMenu();
+
+    int insertMenu(MenuDTO menu);
 }

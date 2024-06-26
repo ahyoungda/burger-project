@@ -31,7 +31,28 @@ public class BurgerService {
 
     }
 
-    public void insertMenu() {
+    public void insertMenu(MenuDTO menu) {
+
+        SqlSession sqlSession = getSqlSession();
+
+        mapper = sqlSession.getMapper(BurgerMapper.class);
+
+        int result = mapper.insertMenu(menu);
+
+        if(result > 0) {
+
+            System.out.println("메뉴 등록 성공");
+            sqlSession.commit();
+
+        } else {
+
+            System.out.println("메뉴 등록 실패");
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+
     }
 
     public void updateMenu() {

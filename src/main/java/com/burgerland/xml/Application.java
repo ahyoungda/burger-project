@@ -1,5 +1,7 @@
 package com.burgerland.xml;
 
+import com.burgerland.common.MenuDTO;
+
 import java.util.Scanner;
 
 public class Application {
@@ -8,7 +10,7 @@ public class Application {
 
         Scanner sc = new Scanner(System.in);
 
-        BurgerService burgerService = new BurgerService();
+        BurgerController burgerController = new BurgerController();
 
         do {
 
@@ -22,11 +24,14 @@ public class Application {
             switch (num) {
 
                 case 1:
-                    burgerOrder(); break;
+                    burgerController.burgerOrder();
+                    break;
                 case 2:
-                    burgerMenu(); break;
+                    burgerController.burgerMenu();
+                    break;
                 case 3:
-                    burgerCustomer(); break;
+                    burgerController.burgerCustomer();
+                    break;
 
 
             }
@@ -34,43 +39,6 @@ public class Application {
         } while (true);
 
 
-    }
-
-    private static void burgerOrder() {
-
-    }
-
-    private static void burgerMenu() {
-
-
-        Scanner sc = new Scanner(System.in);
-
-        BurgerService burgerService = new BurgerService();
-
-        do {
-
-            System.out.println("버거랜드 메뉴 시스템");
-            System.out.println("1. 전체 메뉴 조회");
-            System.out.println("2. 신규 메뉴 등록");
-            System.out.println("3. 메뉴 변경");
-            System.out.println("4. 메뉴 삭제");
-            System.out.println("해당하는 번호를 선택해주세요");
-            int num = sc.nextInt();
-
-            switch (num) {
-
-                case 1: burgerService.viewMenu(); break;
-                case 2: burgerService.insertMenu(); break;
-                case 3: burgerService.updateMenu(); break;
-                case 4: burgerService.deleteMenu(); break;
-
-            }
-        } while (true);
-
-
-
-    }
-
-    private static void burgerCustomer() {
     }
 }
+
