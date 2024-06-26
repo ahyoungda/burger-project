@@ -1,4 +1,4 @@
-package xml;
+package com.burgerland.xml;
 
 public class BurgerController {
 }
