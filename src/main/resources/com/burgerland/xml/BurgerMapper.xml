@@ -1,12 +1,22 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?com.burgerland.xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.burgerland.xml.BurgerMapper">
 
+<resultMap id="custResultMap" type="com.burgerland.common.CustomerDTO" autoMapping="false">
+    <id property="customerCode" column="customer_code"/>
+    <result property="customerName" column="customer_name"/>
+    <result property="regDate" column="reg_date"/>
+    <result property="customerGrade" column="customer_grade"/>
+</resultMap>
 
-
-
+<select id="showAllCustomer" resultMap="custResultMap">
+    select *
+    from customer
+    where customer_code
+    order by customer_code
+</select>
 
 
 </mapper>
