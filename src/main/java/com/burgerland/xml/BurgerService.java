@@ -82,6 +82,27 @@ public class BurgerService {
 
     }
 
-    public void deleteMenu() {
+    public void deleteMenu(Map<String, Object> menu) {
+
+        SqlSession sqlSession = getSqlSession();
+
+        mapper = sqlSession.getMapper(BurgerMapper.class);
+
+        int result = mapper.deleteMenu(menu);
+
+        if(result > 0) {
+
+            System.out.println("메뉴 삭제 성공");
+            sqlSession.commit();
+
+        } else {
+
+            System.out.println("메뉴 삭제 실패");
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+
     }
 }

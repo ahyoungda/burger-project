@@ -32,10 +32,27 @@ public class BurgerController {
                 case 1: burgerService.viewMenu(); break;
                 case 2: burgerService.insertMenu(inputMenu()); break;
                 case 3: burgerService.updateMenu(updateMenu()); break;
-                case 4: burgerService.deleteMenu(); break;
+                case 4: burgerService.deleteMenu(noMenu()); break;
 
             }
         } while (true);
+
+
+    }
+
+    private Map<String, Object> noMenu() {
+
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("삭제할 메뉴 코드를 입력하세요");
+        int code = sc.nextInt();
+
+
+
+        Map<String, Object> menu = new HashMap<>();
+        menu.put("menuCode", code);
+
+        return menu;
 
 
     }

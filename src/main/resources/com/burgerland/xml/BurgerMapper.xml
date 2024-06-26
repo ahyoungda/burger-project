@@ -66,6 +66,18 @@
 
     </update>
 
+    <delete id="deleteMenu" parameterType="com.burgerland.common.MenuDTO">
+
+
+        delete
+        from menu
+        where menu_code = #{menuCode}
+
+
+
+
+    </delete>
+
 
 
 

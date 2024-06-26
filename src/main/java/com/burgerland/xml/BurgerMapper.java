@@ -13,4 +13,6 @@ public interface BurgerMapper {
     int insertMenu(MenuDTO menu);
 
     int updateMenu(Map<String, Object> menu);
+
+    int deleteMenu(Map<String, Object> menu);
 }
