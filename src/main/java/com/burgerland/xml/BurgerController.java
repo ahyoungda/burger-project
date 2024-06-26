@@ -29,7 +29,7 @@ public class BurgerController {
             System.out.println("2. 고객정보 조회");
             System.out.println("3. 고객정보 수정");
             System.out.println("4. 고객정보 삭제");
-            System.out.println("0. 프로글매 종료");
+            System.out.println("0. 프로그램 종료");
             System.out.print("선택할 번호를 입력하세요: ");
             int num = sc.nextInt();
             sc.nextLine(); // 버퍼 비우기
@@ -42,7 +42,7 @@ public class BurgerController {
                     showAllCustomer();
                     break;
                 case 3:
-//                    modifyCustomer();
+                    modifyCustomer(inputModifyCust());
                     break;
                 case 4:
 //                    burgerController.deleteCustomer();
@@ -56,6 +56,30 @@ public class BurgerController {
             }
         } while (true);
     }
+
+    private void modifyCustomer(Map<String, String> parameter) {
+
+        int custCode = Integer.parseInt(parameter.get("custCode"));
+        String custName = parameter.get("custName");
+        String regDate = parameter.get("regDate");
+        String custGrade = parameter.get("custGrade");
+
+
+        CustomerDTO cust = new CustomerDTO();
+        cust.setCustomerCode(custCode);
+        cust.setCustomerName(custName);
+        cust.setRegDate(regDate);
+        cust.setCustomerGrade(custGrade);
+
+//        System.out.println(cust.getRegDate()); // 테스트
+
+        if (burgerService.modifyCustomer(cust)) {
+            printResult.printSuccessMessage("update");
+        } else {
+            printResult.printErrorMessage("update");
+        }
+    }
+
 
     private void registCustomer(Map<String, String> parameter) {
         String custName = parameter.get("custName");
@@ -100,6 +124,25 @@ public class BurgerController {
         String custGrade = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
+        parameter.put("custName", custName);
+        parameter.put("regDate", regDate);
+        parameter.put("custGrade", custGrade);
+        return parameter;
+    }
+
+    private Map<String, String> inputModifyCust() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("수정할 고객 코드를 입력하세요: ");
+        String custCode = sc.nextLine();
+        System.out.println("수정할 고객 이름을 입력하세요.");
+        String custName = sc.nextLine();
+        System.out.println("수정할 고객의 가입일 입력하세요.(xxxx.xx.xx)");
+        String regDate = sc.nextLine();
+        System.out.println("수정할 고객의 계급을 입력하세요.(BRONZE, SILVER, GOLD, PLATINUM, DIAMOND)");
+        String custGrade = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("custCode", custCode);
         parameter.put("custName", custName);
         parameter.put("regDate", regDate);
         parameter.put("custGrade", custGrade);

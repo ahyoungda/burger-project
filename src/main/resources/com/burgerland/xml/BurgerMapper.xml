@@ -4,19 +4,20 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.burgerland.xml.BurgerMapper">
 
-<resultMap id="custResultMap" type="com.burgerland.common.CustomerDTO" autoMapping="false">
-    <id property="customerCode" column="customer_code"/>
-    <result property="customerName" column="customer_name"/>
-    <result property="regDate" column="reg_date"/>
-    <result property="customerGrade" column="customer_grade"/>
-</resultMap>
+    <resultMap id="custResultMap" type="com.burgerland.common.CustomerDTO" autoMapping="false">
+        <id property="customerCode" column="customer_code"/>
+        <result property="customerName" column="customer_name"/>
+        <result property="regDate" column="reg_date"/>
+        <result property="customerGrade" column="customer_grade"/>
+    </resultMap>
 
-<select id="showAllCustomer" resultMap="custResultMap">
-    select *
-    from customer
-    where customer_code
-    order by customer_code
-</select>
+    <select id="showAllCustomer" resultMap="custResultMap">
+        select *
+        from customer
+        where customer_code
+        order by customer_code
+    </select>
+
     <insert id="registCust" parameterType="com.burgerland.common.CustomerDTO">
         insert into customer (
         customer_name,
@@ -28,6 +29,20 @@
         #{ customerGrade }
         )
     </insert>
+
+    <update id="modifyCust" parameterType="com.burgerland.common.CustomerDTO">
+        update customer
+        set
+        customer_name = #{ customerName },
+        reg_date = #{ regDate },
+        customer_grade = #{ customerGrade }
+        where
+        customer_code = #{ customerCode }
+    </update>
+    
+<!--    <delete id=""-->
+
+
 
 
 </mapper>

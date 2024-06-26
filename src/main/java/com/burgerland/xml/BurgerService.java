@@ -39,4 +39,19 @@ public class BurgerService {
         sqlSession.close();
         return result > 0 ? true : false;
     }
+
+    public boolean modifyCustomer(CustomerDTO cust) {
+        SqlSession sqlSession = getSqlSession();
+        custMapper = sqlSession.getMapper(BurgerMapper.class);
+        int result = custMapper.modifyCust(cust);
+
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+        sqlSession.close();
+        return result > 0 ? true : false;
+
+    }
 }

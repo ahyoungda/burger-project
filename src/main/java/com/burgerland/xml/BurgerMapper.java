@@ -9,4 +9,6 @@ public interface BurgerMapper {
     List<CustomerDTO> showAllCustomer();
 
     int registCust(CustomerDTO cust);
+
+    int modifyCust(CustomerDTO cust);
 }
