@@ -1,4 +1,4 @@
 package xml;
 
-public class BurgerMapper {
+public interface BurgerMapper {
 }
