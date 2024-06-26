@@ -1,6 +1,6 @@
-DROP TABLE `menu`;
+DROP TABLE if exists `menu` cascade ;
 
-CREATE TABLE `menu`
+CREATE TABLE if not exists `menu`
 (
     `menu_code`    INTEGER(255) NOT NULL COMMENT '메뉴코드',
     `menu_name`    VARCHAR(255) NOT NULL COMMENT '메뉴명',
@@ -9,13 +9,10 @@ CREATE TABLE `menu`
     PRIMARY KEY ( `menu_code` )
 ) COMMENT = 'menu';
 
-ALTER TABLE `menu`
-    ADD CONSTRAINT `menu_PK` PRIMARY KEY ( `menu_code` );
 
+DROP TABLE if exists `customer` cascade ;
 
-DROP TABLE `customer`;
-
-CREATE TABLE `customer`
+CREATE TABLE if not exists `customer`
 (
     `customer_code`    INTEGER(255) NOT NULL COMMENT '고객코드',
     `customer_name`    VARCHAR(255) NOT NULL COMMENT '고객이름',
@@ -24,13 +21,11 @@ CREATE TABLE `customer`
     PRIMARY KEY ( `customer_code` )
 ) COMMENT = 'customer';
 
-ALTER TABLE `customer`
-    ADD CONSTRAINT `customer_PK` PRIMARY KEY ( `customer_code` );
 
 
-DROP TABLE `order`;
+DROP TABLE if exists `order` cascade ;
 
-CREATE TABLE `order`
+CREATE TABLE if not exists `order`
 (
     `order_code`    INTEGER(255) NOT NULL COMMENT '주문코드',
     `customer_code`    INTEGER(255) NOT NULL COMMENT '고객코드',
@@ -39,7 +34,5 @@ CREATE TABLE `order`
     PRIMARY KEY ( `order_code` )
 ) COMMENT = 'order';
 
-ALTER TABLE `order`
-    ADD CONSTRAINT `order_PK` PRIMARY KEY ( `order_code` );
 
 
