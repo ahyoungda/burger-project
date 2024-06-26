@@ -1,5 +1,3 @@
-use burgerdb;
-
 DROP TABLE if exists `menu` cascade ;
 
 CREATE TABLE if not exists `menu`
