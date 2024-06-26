@@ -34,6 +34,8 @@ CREATE TABLE if not exists `order`
     PRIMARY KEY ( `order_code` )
 ) COMMENT = 'order';
 
+
+-- 고객 테이블 데이터 삽입
 insert into customer values (null, '박태근', '2024.06.26', 'DIAMOND');
 insert into customer values (null, '위성민', '2024.06.25', 'GOLD');
 insert into customer values (null, '박성은', '2024.06.26', 'GOLD');
@@ -45,6 +47,7 @@ insert into customer values (null, '강연진', '2024.06.26', 'BRONZE');
 insert into customer values (null, '권은혜', '2024.06.26', 'IRON');
 insert into customer values (null, '배하은', '2024.06.26', 'BRONZE');
 
+-- 메뉴 테이블 데이터 삽입
 insert into menu values (null, '통새우와퍼랜드', 30000, '버거');
 insert into menu values (null, '더블쿼터파운드치즈버거랜드', 30000, '버거');
 insert into menu values (null, '치즈프라이랜드', 15000, '사이드');
