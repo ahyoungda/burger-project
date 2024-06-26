@@ -1,17 +1,18 @@
-create
-user 'burgerland'@'%' identified by 'burgerland';
+create user 'ohgiraffers'@'%' identified by 'ohgiraffers';
 
-use
-mysql;
-select *
-from user;
+-- 2) 계정이 추가된 것을 확인하기
+use mysql;
+select * from user;
 
+-- 데이터베이스 생성하기
+-- 1) 데이터베이스 생성
 create database burgerdb;
 
-show databases;
+SHOW databases;
 
-grant all privileges on burgerdb.* to 'burgerland'@'%';
+grant all privileges on burgerdb.* to 'ohgiraffers'@'%';
 
-show grants for 'burgerland'@'%';
+show grants for 'ohgiraffers'@'%';
 
-use burgerdb
+
+use burgerdb;

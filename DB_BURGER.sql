@@ -1,44 +1,58 @@
-DROP TABLE `menu`;
+DROP TABLE if exists `menu` cascade ;
 
-CREATE TABLE `menu`
+CREATE TABLE if not exists `menu`
 (
-    `menu_code`    INTEGER(255) NOT NULL COMMENT '메뉴코드',
+    `menu_code`    INT AUTO_INCREMENT COMMENT '메뉴코드',
     `menu_name`    VARCHAR(255) NOT NULL COMMENT '메뉴명',
     `menu_price`    INTEGER(255) NOT NULL COMMENT '가격',
     `category`    VARCHAR(255) NOT NULL COMMENT '카테고리',
     PRIMARY KEY ( `menu_code` )
 ) COMMENT = 'menu';
 
-ALTER TABLE `menu`
-    ADD CONSTRAINT `menu_PK` PRIMARY KEY ( `menu_code` );
 
+DROP TABLE if exists `customer` cascade ;
 
-DROP TABLE `customer`;
-
-CREATE TABLE `customer`
+CREATE TABLE if not exists `customer`
 (
-    `customer_code`    INTEGER(255) NOT NULL COMMENT '고객코드',
+    `customer_code`    INT AUTO_INCREMENT COMMENT '고객코드',
     `customer_name`    VARCHAR(255) NOT NULL COMMENT '고객이름',
     `reg_date`    VARCHAR(255) NOT NULL COMMENT '가입일',
     `customer_grade`    VARCHAR(255) NOT NULL COMMENT '고객등급',
     PRIMARY KEY ( `customer_code` )
 ) COMMENT = 'customer';
 
-ALTER TABLE `customer`
-    ADD CONSTRAINT `customer_PK` PRIMARY KEY ( `customer_code` );
 
 
-DROP TABLE `order`;
+DROP TABLE if exists `order` cascade ;
 
-CREATE TABLE `order`
+CREATE TABLE if not exists `order`
 (
-    `order_code`    INTEGER(255) NOT NULL COMMENT '주문코드',
+    `order_code`    INT AUTO_INCREMENT COMMENT '주문코드',
     `customer_code`    INTEGER(255) NOT NULL COMMENT '고객코드',
     `menu_code`    INTEGER(255) NOT NULL COMMENT '메뉴코드',
     `order_date`    VARCHAR(255) NOT NULL COMMENT '주문일',
     PRIMARY KEY ( `order_code` )
 ) COMMENT = 'order';
 
-ALTER TABLE `order`
-    ADD CONSTRAINT `order_PK` PRIMARY KEY ( `order_code` );
+insert into customer values (null, '박태근', '2024.06.26', 'DIAMOND');
+insert into customer values (null, '위성민', '2024.06.25', 'GOLD');
+insert into customer values (null, '박성은', '2024.06.26', 'GOLD');
+insert into customer values (null, '홍주연', '2024.06.26', 'SILVER');
+insert into customer values (null, '이득규', '2024.06.24', 'PLATINUM');
+insert into customer values (null, '전유안', '2024.06.24', 'PLATINUM');
+insert into customer values (null, '김강현', '2024.06.27', 'BRONZE');
+insert into customer values (null, '강연진', '2024.06.26', 'BRONZE');
+insert into customer values (null, '권은혜', '2024.06.26', 'IRON');
+insert into customer values (null, '배하은', '2024.06.26', 'BRONZE');
+
+insert into menu values (null, '통새우와퍼랜드', 30000, '버거');
+insert into menu values (null, '더블쿼터파운드치즈버거랜드', 30000, '버거');
+insert into menu values (null, '치즈프라이랜드', 15000, '사이드');
+insert into menu values (null, '고구마프라이랜드', 18000, '사이드');
+insert into menu values (null, '메론소다랜드', 10000, '음료');
+insert into menu values (null, '밀바사랜드', 10000, '음료');
+
+commit;
+
+
 
