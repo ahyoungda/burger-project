@@ -41,6 +41,33 @@
 
     </insert>
 
+    <update id="updateMenu" parameterType="hashmap">
+
+
+        update
+        menu
+        <set>
+            <if test="name != null">
+                menu_name = #{ MenuName },
+            </if>
+            <if test="price != null">
+                menu_price = #{ MenuPrice },
+
+            </if>
+            <if test="category != null">
+                category = #{ category }
+            </if>
+
+        </set>
+
+        where menu_code = #{menuCode}
+
+
+
+    </update>
+
+
+
 
 
 
