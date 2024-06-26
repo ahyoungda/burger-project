@@ -39,8 +39,12 @@
         where
         customer_code = #{ customerCode }
     </update>
-    
-<!--    <delete id=""-->
+
+    <delete id="deleteCust" parameterType="_int">
+        delete
+        from customer
+        where customer_code = #{ customerCode }
+    </delete>
 
 
 

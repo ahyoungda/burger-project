@@ -24,12 +24,12 @@ public class BurgerController {
         BurgerController burgerController = new BurgerController();
 
         do {
-            System.out.println("============= 고객관리 시스템 =============");
+            System.out.println("============= 버거랜드 고객관리 시스템 =============");
             System.out.println("1. 고객정보 등록");
             System.out.println("2. 고객정보 조회");
             System.out.println("3. 고객정보 수정");
             System.out.println("4. 고객정보 삭제");
-            System.out.println("0. 프로그램 종료");
+            System.out.println("0. 뒤로가기");
             System.out.print("선택할 번호를 입력하세요: ");
             int num = sc.nextInt();
             sc.nextLine(); // 버퍼 비우기
@@ -45,7 +45,7 @@ public class BurgerController {
                     modifyCustomer(inputModifyCust());
                     break;
                 case 4:
-//                    burgerController.deleteCustomer();
+                    deleteCustomer(inputCustCode());
                     break;
                 case 0:
                     System.out.println("프로그램을 종료합니다.");
@@ -57,6 +57,30 @@ public class BurgerController {
         } while (true);
     }
 
+    // 고객 정보 삭제 메소드
+    public void deleteCustomer(Map<String, String> parameter) {
+        int custCode = Integer.parseInt(parameter.get("custCode"));
+
+        if (burgerService.deleteCust(custCode)) {
+            printResult.printSuccessMessage("delete");
+        } else {
+            printResult.printErrorMessage("delete");
+        }
+    }
+
+    // 고객 정보 삭제 - 번호 입력 메소드
+    private static Map<String, String> inputCustCode() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("삭제할 메뉴코드를 입력하세요: ");
+        String custCode = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("custCode", custCode);
+
+        return parameter;
+    }
+
+    // 고객 정보 수정 메소드
     private void modifyCustomer(Map<String, String> parameter) {
 
         int custCode = Integer.parseInt(parameter.get("custCode"));
@@ -80,7 +104,7 @@ public class BurgerController {
         }
     }
 
-
+    // 고객 정보 등록 메소드
     private void registCustomer(Map<String, String> parameter) {
         String custName = parameter.get("custName");
         String regDate = parameter.get("regDate");
@@ -101,7 +125,7 @@ public class BurgerController {
     }
 
 
-    // 전체 고객 조회
+    // 전체 고객 조회 메소드
     public void showAllCustomer() {
         List<CustomerDTO> custList = burgerService.showAllCustomer();
 
@@ -114,6 +138,7 @@ public class BurgerController {
         }
     }
 
+    // 고객 정보 등록 - 내용 기입 메소드
     private static Map<String, String> inputCustInfo() {
         Scanner sc = new Scanner(System.in);
         System.out.println("추가할 고객 이름을 입력하세요.");
@@ -130,7 +155,8 @@ public class BurgerController {
         return parameter;
     }
 
-    private Map<String, String> inputModifyCust() {
+    // 고객 수정 등록 - 내용 기입 메소드
+    private static Map<String, String> inputModifyCust() {
         Scanner sc = new Scanner(System.in);
         System.out.println("수정할 고객 코드를 입력하세요: ");
         String custCode = sc.nextLine();

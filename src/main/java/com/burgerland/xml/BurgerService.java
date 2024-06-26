@@ -12,6 +12,21 @@ public class BurgerService {
 
     private BurgerMapper custMapper;
 
+    public boolean deleteCust(int custCode) {
+        SqlSession sqlSession = getSqlSession();
+        custMapper = sqlSession.getMapper(BurgerMapper.class);
+
+        int result = custMapper.deleteCust(custCode);
+
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+        sqlSession.close();
+        return result > 0 ? true : false;
+    }
+
     public List<CustomerDTO> showAllCustomer() {
 
 //        System.out.println("서비스요청 들어옴"); // 데이터 수렴 테스트

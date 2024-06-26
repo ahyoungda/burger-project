@@ -11,4 +11,6 @@ public interface BurgerMapper {
     int registCust(CustomerDTO cust);
 
     int modifyCust(CustomerDTO cust);
+
+    int deleteCust(int custCode);
 }
