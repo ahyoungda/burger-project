@@ -42,4 +42,3 @@ CREATE TABLE `order`
 ALTER TABLE `order`
     ADD CONSTRAINT `order_PK` PRIMARY KEY ( `order_code` );
 
-
