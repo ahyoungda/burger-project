@@ -2,7 +2,7 @@ create
 user 'burgerland'@'%' identified by 'burgerland';
 
 use
-mysql
+mysql;
 select *
 from user;
 
