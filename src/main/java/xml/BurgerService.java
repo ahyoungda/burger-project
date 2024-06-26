@@ -1,12 +1,6 @@
 package xml;
 
+import java.util.Scanner;
+
 public class BurgerService {
-    public void burgerOrder() {
-    }
-
-    public void burgerMenu() {
-    }
-
-    public void burgerCustomer() {
-    }
 }

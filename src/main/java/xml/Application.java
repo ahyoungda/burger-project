@@ -22,11 +22,11 @@ public class Application {
             switch (num1) {
 
                 case 1:
-                    burgerService.burgerOrder(); break;
+                    burgerOrder(); break;
                 case 2:
-                    burgerService.burgerMenu(); break;
+                    burgerMenu(); break;
                 case 3:
-                    burgerService.burgerCustomer(); break;
+                    burgerCustomer(); break;
 
 
             }
@@ -34,5 +34,16 @@ public class Application {
         } while (true);
 
 
+    }
+
+    private static void burgerOrder() {
+        
+    }
+
+    private static void burgerMenu() {
+
+    }
+
+    private static void burgerCustomer() {
     }
 }
