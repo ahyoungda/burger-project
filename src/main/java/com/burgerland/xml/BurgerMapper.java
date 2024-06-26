@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface BurgerMapper {
     List<CustomerDTO> showAllCustomer();
+
+    int registCust(CustomerDTO cust);
 }

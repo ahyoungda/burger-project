@@ -21,4 +21,20 @@ public class PrintResult {
         }
         System.out.println(errorMessage);
     }
+
+    public void printSuccessMessage(String successCode) {
+        String successMessage = "";
+        switch (successCode) {
+            case "insert":
+                successMessage = "신규 고객 등록을 성공했습니다.";
+                break;
+            case "update":
+                successMessage = "고객 정보 수정을 성공했습니다.";
+                break;
+            case "delete":
+                successMessage = "고객 정보 삭제를 성공했습니다.";
+                break;
+        }
+        System.out.println(successMessage);
+    }
 }

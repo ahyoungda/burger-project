@@ -35,7 +35,7 @@ public class BurgerController {
 
             switch (num) {
                 case 1:
-                    addCustomer(inputCustInfo());
+                    registCustomer(inputCustInfo());
                     break;
                 case 2:
                     showAllCustomer();
@@ -53,14 +53,23 @@ public class BurgerController {
         } while (true);
     }
 
-    private void addCustomer(Map<String, String> parameter) {
+    private void registCustomer(Map<String, String> parameter) {
         String custName = parameter.get("custName");
         String regDate = parameter.get("regDate");
         String custGrade = parameter.get("custGrade");
 
         CustomerDTO cust = new CustomerDTO();
+        cust.setCustomerName(custName);
+        cust.setRegDate(regDate);
+        cust.setCustomerGrade(custGrade);
 
+//        System.out.println(cust.getRegDate());
 
+        if (burgerService.registCustomer(cust)) {
+            printResult.printSuccessMessage("insert");
+        } else {
+            printResult.printErrorMessage("insert");
+        }
     }
 
 
@@ -81,10 +90,12 @@ public class BurgerController {
         Scanner sc = new Scanner(System.in);
         System.out.println("추가할 고객 이름을 입력하세요.");
         String custName = sc.nextLine();
-        System.out.println("추가할 고객 주민번호를 입력하세요.");
+        System.out.println("추가할 고객의 가입일 입력하세요.(xxxx.xx.xx)");
         String custRegDate = sc.nextLine();
-        System.out.println("추가할 고객의 계급을 조회합니다.");
+        System.out.println("추가할 고객의 계급을 입력하세요.(BRONZE, SILVER, GOLD, PLATINUM, DIAMOND)");
         String custGrade = sc.nextLine();
+
+
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("custName", custName);

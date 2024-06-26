@@ -1,4 +1,4 @@
-use menudb;
+use burgerdb;
 
 DROP TABLE if exists `menu` cascade ;
 

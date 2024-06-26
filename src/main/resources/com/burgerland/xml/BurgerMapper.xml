@@ -17,6 +17,17 @@
     where customer_code
     order by customer_code
 </select>
+    <insert id="registCust" parameterType="com.burgerland.common.CustomerDTO">
+        insert into customer (
+        customer_name,
+        reg_date,
+        customer_grade
+        ) values (
+        #{ customerName },
+        #{ regDate },
+        #{ customerGrade }
+        )
+    </insert>
 
 
 </mapper>
