@@ -20,5 +20,5 @@ public class BurgerDTO {
     private String menuName;
     private int menuPrice;
     private String category;
-    
+
 }
