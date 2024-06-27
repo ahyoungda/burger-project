@@ -1,4 +1,4 @@
-package com.burgerland.xml;
+package com.burgerland.view;
 
 import com.burgerland.common.BurgerDTO;
 import com.burgerland.common.CustomerDTO;

@@ -2,7 +2,7 @@ package com.burgerland.controller;
 
 import com.burgerland.common.CustomerDTO;
 import com.burgerland.service.CustomerService;
-import com.burgerland.xml.CustomerPrintResult;
+import com.burgerland.view.CustomerPrintResult;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -154,7 +154,6 @@ public class CustomerController {
 //                System.out.println("잘못된 날짜 형식입니다. 다시 입력해주세요.");
 //            }
 //        }
-
 
 
 //        System.out.println("추가할 고객의 계급을 입력하세요.(BRONZE, SILVER, GOLD, PLATINUM, DIAMOND)");
