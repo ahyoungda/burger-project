@@ -17,7 +17,7 @@ public class OrderController {
     // 구현 예정 : 주문 과정
     // 1. 메뉴 목록을 조회한다.
     // 2. 메뉴의 코드를 선택한다.
-    // 3. 메뉴의 개수를 선택한다.
+    // 3. 메뉴의 개수를 선택한다. (보류)
     // 4. 뒤로간다.
     // 5. 다른 메뉴를 추가한다.
     // 6. 주문 개수와 가격의 최종 합산을 한다.
@@ -29,8 +29,8 @@ public class OrderController {
         String menuCode = parameter.get("menuCode");
 
         // 메뉴 개수 선택
-        String quantityStr = parameter.get("quantity");
-        int quantity = Integer.parseInt(quantityStr); // 문자열을 정수형으로 변환
+//        String quantityStr = parameter.get("quantity");
+//        int quantity = Integer.parseInt(quantityStr); // 문자열을 정수형으로 변환
         // 주문한 메뉴의 개수를 받아온다
 
         // 주문 번호 생성
