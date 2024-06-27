@@ -13,22 +13,17 @@ public class MenuService {
 
     private BurgerMapper mapper;
 
-    public void viewMenu() {
+    public List<MenuDTO> viewMenu() {
 
         SqlSession sqlSession = getSqlSession();
 
         mapper = sqlSession.getMapper(BurgerMapper.class);
 
-        List<MenuDTO> MenuList = mapper.viewMenu();
-
-        for (MenuDTO burger : MenuList) {
-
-            System.out.println(burger);
-
-        }
+        List<MenuDTO> menuList = mapper.viewMenu();
 
         sqlSession.close();
 
+        return menuList;
 
     }
 
