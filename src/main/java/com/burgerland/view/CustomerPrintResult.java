@@ -2,18 +2,19 @@ package com.burgerland.xml;
 
 import com.burgerland.common.BurgerDTO;
 import com.burgerland.common.CustomerDTO;
+import com.burgerland.controller.CustomerController;
 
 import java.util.List;
 import java.util.Scanner;
 
-import static com.burgerland.xml.BurgerController.*;
+import static com.burgerland.controller.CustomerController.*;
 
-public class PrintResult {
+public class CustomerPrintResult {
 
     // 고객정보 관리 시스템
-    public void burgerCustomer() {
+    public static void burgerCustomer() {
         Scanner sc = new Scanner(System.in);
-        BurgerController burgerController = new BurgerController();
+        CustomerController customerController = new CustomerController();
 
         do {
             System.out.println("============= 버거랜드 고객관리 시스템 =============");
@@ -28,16 +29,16 @@ public class PrintResult {
 
             switch (num) {
                 case 1:
-                    burgerController.registCustomer(inputCustInfo());
+                    customerController.registCustomer(inputCustInfo());
                     break;
                 case 2:
-                    burgerController.showAllCustomer();
+                    customerController.showAllCustomer();
                     break;
                 case 3:
-                    burgerController.modifyCustomer(inputModifyCust());
+                    customerController.modifyCustomer(inputModifyCust());
                     break;
                 case 4:
-                    burgerController.deleteCustomer(inputCustCode());
+                    customerController.deleteCustomer(inputCustCode());
                     break;
                 case 0:
                     System.out.println("프로그램을 종료합니다.");

@@ -1,10 +1,10 @@
-package com.burgerland.xml;
+package com.burgerland.controller;
 
-import com.burgerland.common.BurgerDTO;
 import com.burgerland.common.CustomerDTO;
+import com.burgerland.service.CustomerService;
+import com.burgerland.xml.CustomerPrintResult;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.HashMap;
@@ -12,24 +12,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class BurgerController {
-    private final PrintResult printResult;
-    private final BurgerService burgerService;
+public class CustomerController {
+    private final CustomerPrintResult customerPrintResult;
+    private final CustomerService customerService;
 
     // 생성자
-    public BurgerController() {
-        printResult = new PrintResult();
-        burgerService = new BurgerService();
+    public CustomerController() {
+        customerService = new CustomerService();
+        customerPrintResult = new CustomerPrintResult();
     }
 
     // 고객 정보 삭제 메소드
     public void deleteCustomer(Map<String, String> parameter) {
         int custCode = Integer.parseInt(parameter.get("custCode"));
 
-        if (burgerService.deleteCust(custCode)) {
-            printResult.printSuccessMessage("delete");
+        if (customerService.deleteCust(custCode)) {
+            customerPrintResult.printSuccessMessage("delete");
         } else {
-            printResult.printErrorMessage("delete");
+            customerPrintResult.printErrorMessage("delete");
         }
     }
 
@@ -65,10 +65,10 @@ public class BurgerController {
 
 //        System.out.println(cust.getRegDate()); // 테스트
 
-        if (burgerService.modifyCustomer(cust)) {
-            printResult.printSuccessMessage("update");
+        if (customerService.modifyCustomer(cust)) {
+            customerPrintResult.printSuccessMessage("update");
         } else {
-            printResult.printErrorMessage("update");
+            customerPrintResult.printErrorMessage("update");
         }
     }
 
@@ -89,24 +89,24 @@ public class BurgerController {
 
 //        System.out.println(cust.getRegDate());
 
-        if (burgerService.registCustomer(cust)) {
-            printResult.printSuccessMessage("insert");
+        if (customerService.registCustomer(cust)) {
+            customerPrintResult.printSuccessMessage("insert");
         } else {
-            printResult.printErrorMessage("insert");
+            customerPrintResult.printErrorMessage("insert");
         }
     }
 
 
     // 전체 고객 조회 메소드
     public void showAllCustomer() {
-        List<CustomerDTO> custList = burgerService.showAllCustomer();
+        List<CustomerDTO> custList = customerService.showAllCustomer();
 
 //        System.out.println(custList); // 출력 테스트
 
         if (custList != null) {
-            printResult.printCustList(custList);
+            customerPrintResult.printCustList(custList);
         } else {
-            printResult.printErrorMessage("selectList");
+            customerPrintResult.printErrorMessage("selectList");
         }
     }
 

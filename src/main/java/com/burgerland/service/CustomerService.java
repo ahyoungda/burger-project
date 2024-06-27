@@ -1,14 +1,14 @@
-package com.burgerland.xml;
+package com.burgerland.service;
 
-import com.burgerland.common.BurgerDTO;
 import com.burgerland.common.CustomerDTO;
+import com.burgerland.xml.BurgerMapper;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
 import static com.burgerland.common.Template.getSqlSession;
 
-public class BurgerService {
+public class CustomerService {
 
     private BurgerMapper custMapper;
 
