@@ -1,16 +1,15 @@
-package com.burgerland.xml;
+package com.burgerland.service;
 
-import com.burgerland.common.BurgerDTO;
 import com.burgerland.common.MenuDTO;
+import com.burgerland.xml.BurgerMapper;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 import static com.burgerland.common.Template.getSqlSession;
 
-public class BurgerService {
+public class MenuService {
 
     private BurgerMapper mapper;
 
@@ -22,7 +21,7 @@ public class BurgerService {
 
         List<MenuDTO> MenuList = mapper.viewMenu();
 
-        for(MenuDTO burger : MenuList) {
+        for (MenuDTO burger : MenuList) {
 
             System.out.println(burger);
 
@@ -41,7 +40,7 @@ public class BurgerService {
 
         int result = mapper.insertMenu(menu);
 
-        if(result > 0) {
+        if (result > 0) {
 
             System.out.println("메뉴 등록 성공");
             sqlSession.commit();
@@ -66,7 +65,7 @@ public class BurgerService {
 
         System.out.println(menu);
         int result = mapper.updateMenu(menu);
-        if(result > 0) {
+        if (result > 0) {
 
             System.out.println("메뉴 수정 성공");
             sqlSession.commit();
@@ -90,7 +89,7 @@ public class BurgerService {
 
         int result = mapper.deleteMenu(menu);
 
-        if(result > 0) {
+        if (result > 0) {
 
             System.out.println("메뉴 삭제 성공");
             sqlSession.commit();

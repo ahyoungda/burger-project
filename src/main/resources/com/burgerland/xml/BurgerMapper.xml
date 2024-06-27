@@ -1,21 +1,32 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?com.burgerland.xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.burgerland.xml.BurgerMapper">
 
-    <resultMap id="BurgerMap" type="com.burgerland.common.MenuDTO">
+    <!-- Menu SQL Query -->
+    <resultMap id="custResultMap" type="com.burgerland.common.CustomerDTO" autoMapping="false">
+        <id property="customerCode" column="customer_code"/>
+        <result property="customerName" column="customer_name"/>
+        <result property="regDate" column="reg_date"/>
+        <result property="customerGrade" column="customer_grade"/>
+    </resultMap>
 
+    <select id="showAllCustomer" resultMap="custResultMap">
+        select *
+        from customer
+        where customer_code
+        order by customer_code
+    </select>
+
+    <resultMap id="BurgerMap" type="com.burgerland.common.MenuDTO">
         <id property="menuCode" column="menu_code"/>
         <result property="menuName" column="menu_name"/>
         <result property="menuPrice" column="menu_price"/>
         <result property="category" column="category"/>
-
-
     </resultMap>
 
     <select id="viewMenu" resultMap="BurgerMap">
-
         select
         menu_code,
         menu_name,
@@ -23,11 +34,9 @@
         category
         from menu
         order by menu_code
-
     </select>
 
     <insert id="insertMenu" parameterType="com.burgerland.common.MenuDTO">
-
         insert into menu(
         menu_name,
         menu_price,
@@ -37,13 +46,9 @@
         #{ menuPrice },
         #{ category }
         )
-
-
     </insert>
 
     <update id="updateMenu" parameterType="hashmap">
-
-
         update
         menu
         <set>
@@ -57,31 +62,44 @@
             <if test="category != null">
                 category = #{ category }
             </if>
-
         </set>
-
         where menu_code = #{menuCode}
-
-
-
     </update>
 
     <delete id="deleteMenu" parameterType="com.burgerland.common.MenuDTO">
-
-
         delete
         from menu
         where menu_code = #{menuCode}
-
-
-
-
     </delete>
 
+    <!-- Customer SQL Query -->
+    <insert id="registCust" parameterType="com.burgerland.common.CustomerDTO">
+        insert into customer (
+        customer_name,
+        reg_date,
+        customer_grade
+        ) values (
+        #{ customerName },
+        #{ regDate },
+        #{ customerGrade }
+        )
+    </insert>
 
+    <update id="modifyCust" parameterType="com.burgerland.common.CustomerDTO">
+        update customer
+        set
+        customer_name = #{ customerName },
+        reg_date = #{ regDate },
+        customer_grade = #{ customerGrade }
+        where
+        customer_code = #{ customerCode }
+    </update>
 
-
-
+    <delete id="deleteCust" parameterType="_int">
+        delete
+        from customer
+        where customer_code = #{ customerCode }
+    </delete>
 
 
 </mapper>
