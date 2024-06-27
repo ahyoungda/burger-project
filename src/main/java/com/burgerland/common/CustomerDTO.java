@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 
+// Customer DTO
 public class CustomerDTO {
 
     private int customerCode;

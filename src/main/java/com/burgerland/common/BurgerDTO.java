@@ -8,6 +8,7 @@ import lombok.*;
 @Setter
 @ToString
 
+// DB의 모든 테이블의 컬럼
 public class BurgerDTO {
 
     private int customerCode;

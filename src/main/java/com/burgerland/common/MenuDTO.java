@@ -8,6 +8,7 @@ import lombok.*;
 @Getter
 @ToString
 
+// Menu DTO
 public class MenuDTO {
 
     private int menuCode;
