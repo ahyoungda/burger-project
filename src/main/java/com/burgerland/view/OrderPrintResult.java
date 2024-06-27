@@ -51,6 +51,5 @@ public class OrderPrintResult {
 
     private static Map<String, String> inputOrderInfo() {
 
-        return null;
     }
 }

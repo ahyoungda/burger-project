@@ -21,12 +21,25 @@ public class OrderController {
     // 4. 뒤로간다.
     // 5. 다른 메뉴를 추가한다.
     // 6. 주문 개수와 가격의 최종 합산을 한다.
-    // 7. 최종 출력은 영수증이 출력된다.
-    public void selectAllMenu() {
-        
-    }
-
+    // 7. 최종 출력은
+    // {주문 번호}, {메뉴 이름}, {메뉴 가격}, {메뉴별 주문 개수}, {주문일}
+    // 내용이 담긴 영수증이 출력된다.
     public void registOrder(Map<String, String> parameter) {
+        // 메뉴 코드 선택
+        String menuCode = parameter.get("menuCode");
+
+        // 메뉴 개수 선택
+        String quantityStr = parameter.get("quantity");
+        int quantity = Integer.parseInt(quantityStr); // 문자열을 정수형으로 변환
+        // 주문한 메뉴의 개수를 받아온다
+
+        // 주문 번호 생성
+        // 주문 번호를 생성하는 로직을 구현 (예: 시퀀스, 랜덤 문자열 등)
+//        String orderNumber = generateOrderNumber(); // 예시 함수
+
+        // 주문 정보 저장
+        // 현재 시간을 기준으로 주문일을 생성
+//        String orderDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
     }
 }
