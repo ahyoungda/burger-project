@@ -3,6 +3,8 @@ package com.burgerland.xml;
 import com.burgerland.controller.MenuController;
 import com.burgerland.view.CustomerPrintResult;
 import com.burgerland.view.MenuPrintResult;
+import com.burgerland.view.OrderPrintResult;
+//import com.burgerland.view.OrderPrintResult;
 
 import java.util.Scanner;
 
@@ -14,11 +16,12 @@ public class Application {
         MenuController burgerController = new MenuController();
         MenuPrintResult menuPrintResult = new MenuPrintResult();
         CustomerPrintResult customerPrintResult = new CustomerPrintResult();
+        OrderPrintResult orderPrintResult = new OrderPrintResult();
 
         do {
             System.out.println("============= 버거랜드 시스템 =============");
             System.out.println("버거랜드 시스템");
-            System.out.println("1. 주문");
+            System.out.println("1. 주문 하기");
             System.out.println("2. 메뉴 관리");
             System.out.println("3. 고객 관리");
             System.out.println("0. 프로그램 종료");
@@ -28,7 +31,7 @@ public class Application {
             switch (num) {
 
                 case 1:
-                    burgerController.burgerOrder();
+                    orderPrintResult.burgerOrder();
                     break;
                 case 2:
                     menuPrintResult.burgerMenu();
