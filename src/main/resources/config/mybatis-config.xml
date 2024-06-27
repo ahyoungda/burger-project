@@ -6,6 +6,11 @@
 
     <properties resource="config/connection-info.properties"/>
 
+    <!-- 마이바티스에서 데이터베이스에 null 넣고싶을때 설정  -->
+    <settings>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
+
 <!--    <typeAliases>-->
 <!--        <typeAlias type="com.ohgiraffers.common.SearchCriteria" alias="SearchCriteria"/>-->
 <!--    </typeAliases>-->
