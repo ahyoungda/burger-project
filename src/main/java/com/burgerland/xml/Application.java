@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Application {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        BurgerController burgerController = new BurgerController();
+        PrintResult printResult = new PrintResult();
 
         do {
             System.out.println("============= 버거랜드 시스템 =============");
@@ -26,7 +26,7 @@ public class Application {
 //                    burgerMenu();
 //                    break;
                 case 3:
-                    burgerController.burgerCustomer();
+                    printResult.burgerCustomer();
                     break;
             }
         } while (true);
