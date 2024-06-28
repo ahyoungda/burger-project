@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 
+// Customer DTO
 public class CustomerDTO {
 
     private int customerCode;
@@ -18,4 +19,5 @@ public class CustomerDTO {
 //    private LocalDate regDate; // LocalDate로 변경 예정
     private String regDate;
     private String customerGrade;
+    private int customerContact;
 }
