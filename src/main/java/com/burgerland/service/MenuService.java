@@ -20,9 +20,9 @@ public class MenuService {
 
         mapper = sqlSession.getMapper(BurgerMapper.class);
 
-        List<MenuDTO> MenuList = mapper.viewMenu();
+        List<MenuDTO> menuList = mapper.viewMenu();
 
-        for (MenuDTO burger : MenuList) {
+        for (MenuDTO burger : menuList) {
 
             System.out.println(burger);
 
