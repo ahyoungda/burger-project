@@ -4,7 +4,10 @@ import com.burgerland.common.OrderDTO;
 import com.burgerland.service.OrderService;
 import com.burgerland.view.OrderPrintResult;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class OrderController {
     private final OrderPrintResult orderPrintResult;
@@ -14,6 +17,62 @@ public class OrderController {
         orderPrintResult = new OrderPrintResult();
         orderService = new OrderService();
     }
+
+    public void registOrder(String s) {
+
+
+
+
+    }
+
+    public void showMyOrder() {
+
+
+
+        List<OrderDTO> orderList = orderService.showMyOrder();
+
+        orderPrintResult.printOrderList(orderList);
+
+
+    }
+
+    public void cancelMyOrder(Map<String, String> Object) {
+
+        OrderDTO order = new OrderDTO();
+
+        int orderCode = Integer.parseInt(Object.get("orderCode"));
+
+        order.setOrderCode(Integer.parseInt(String.valueOf(orderCode)));
+
+//        Stirng orderCode = Integer.parseInt(Object.get("orderCode"));
+
+
+        if (orderService.cancelMyOrder(orderCode)) {
+            orderPrintResult.printSuccessMessage("delete");
+        } else {
+            orderPrintResult.printErrorMessage("delete");
+        }
+
+
+
+    }
+
+
+    public static Map<String, String> deleteOrder() {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("삭제할 메뉴 코드를 입력하세요");
+        String orderCode = sc.nextLine();
+
+        Map<String, String> Object = new HashMap<>();
+        Object.put("orderCode", orderCode);
+        return Object;
+
+
+
+
+    }
+
 
     // 구현 예정 : 주문 과정
     // 1. 메뉴 목록을 조회한다.

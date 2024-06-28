@@ -18,6 +18,24 @@
         where customer_code
         order by customer_code
     </select>
+    
+    <resultMap id="orderMap" type="com.burgerland.common.OrderDTO">
+        <id property="orderCode" column="order_code"/>
+        <result property="customerContact" column="customer_contact"/>
+        <result property="menuName" column="menu_name"/>
+        <result property="orderDate" column="order_date"/>
+<!--        <result property="customerName" column="customerName"/>-->
+<!--        <result property="menuPrice" column="menu_Price"/>-->
+<!--        <result property="customerGrade" column="customer_grade"/>-->
+
+    </resultMap>
+    
+    <select id="showMyOrder" resultMap="orderMap">
+        select
+        *
+        from orders
+        where customer_contact = #{ customerContact }
+    </select>
 
     <resultMap id="BurgerMap" type="com.burgerland.common.MenuDTO">
         <id property="menuCode" column="menu_code"/>
@@ -71,6 +89,14 @@
 <!--        </set>-->
 <!--        where menu_code = #{menuCode}-->
     </update>
+    
+    <delete id="cancelMyOrder" parameterType="com.burgerland.common.OrderDTO">
+
+        delete
+        from orders
+        where order_code = #{orderCode}
+
+    </delete>
 
     <delete id="deleteMenu" parameterType="com.burgerland.common.MenuDTO">
         delete
