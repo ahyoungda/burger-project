@@ -49,7 +49,11 @@ public class OrderPrintResult {
         } while (true);
     }
 
-    private static Map<String, String> inputOrderInfo() {
+    private static String inputOrderInfo() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("구매할 메뉴 이름을 입력하세요: ");
+        String menuName = sc.nextLine();
 
+        return menuName;
     }
 }

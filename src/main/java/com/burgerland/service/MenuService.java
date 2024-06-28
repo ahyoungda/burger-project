@@ -65,6 +65,9 @@ public class MenuService {
 
         System.out.println(menu);
         int result = mapper.updateMenu(menu);
+
+
+
         if (result > 0) {
 
             System.out.println("메뉴 수정 성공");
