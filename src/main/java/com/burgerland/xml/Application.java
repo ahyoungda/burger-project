@@ -11,7 +11,6 @@ public class Application {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        MenuController burgerController = new MenuController();
         MenuPrintResult menuPrintResult = new MenuPrintResult();
         CustomerPrintResult customerPrintResult = new CustomerPrintResult();
 
@@ -28,7 +27,7 @@ public class Application {
             switch (num) {
 
                 case 1:
-                    burgerController.burgerOrder();
+//                    burgerController.burgerOrder();
                     break;
                 case 2:
                     menuPrintResult.burgerMenu();
