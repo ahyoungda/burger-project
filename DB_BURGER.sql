@@ -55,6 +55,7 @@ insert into menu values (null, '치즈프라이랜드', 15000, '사이드');
 insert into menu values (null, '고구마프라이랜드', 18000, '사이드');
 insert into menu values (null, '메론소다랜드', 10000, '음료');
 insert into menu values (null, '밀바사랜드', 10000, '음료');
+insert into menu values (null, '솔의눈', 120000, '관상용');
 
 commit;
 
