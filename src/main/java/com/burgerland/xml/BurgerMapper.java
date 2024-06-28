@@ -3,6 +3,7 @@ package com.burgerland.xml;
 import com.burgerland.common.MenuDTO;
 
 import com.burgerland.common.CustomerDTO;
+import com.burgerland.common.OrderDTO;
 
 import java.util.List;
 import java.util.Map;
@@ -20,4 +21,6 @@ public interface BurgerMapper {
     int updateMenu(Map<String, String> menu);
 
     int deleteMenu(int menuCode );
+
+    int registOrder(OrderDTO order);
 }

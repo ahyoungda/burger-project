@@ -52,24 +52,24 @@
         update
         menu
         set
-                menu_name = #{ menuName },
-                menu_price = #{ menuPrice },
-                category = #{ category }
-        where menu_code = #{menuCode}
+        menu_name = #{ menuName },
+        menu_price = #{ menuPrice },
+        category = #{ category }
+        where menu_code = #{ menuCode }
 
-<!--        <set>-->
-<!--            <if test="name != null">-->
-<!--                menu_name = #{ menuName },-->
-<!--            </if>-->
-<!--            <if test="price != null">-->
-<!--                menu_price = #{ menuPrice },-->
+        <!--        <set>-->
+        <!--            <if test="name != null">-->
+        <!--                menu_name = #{ menuName },-->
+        <!--            </if>-->
+        <!--            <if test="price != null">-->
+        <!--                menu_price = #{ menuPrice },-->
 
-<!--            </if>-->
-<!--            <if test="category != null">-->
-<!--                category = #{ category }-->
-<!--            </if>-->
-<!--        </set>-->
-<!--        where menu_code = #{menuCode}-->
+        <!--            </if>-->
+        <!--            <if test="category != null">-->
+        <!--                category = #{ category }-->
+        <!--            </if>-->
+        <!--        </set>-->
+        <!--        where menu_code = #{menuCode}-->
     </update>
 
     <delete id="deleteMenu" parameterType="com.burgerland.common.MenuDTO">
@@ -107,5 +107,19 @@
         where customer_code = #{ customerCode }
     </delete>
 
+    <!-- Order SQL Query -->
+    <insert id="registOrder" parameterType="com.burgerland.common.OrderDTO">
+        insert into orders (
+        menu_name,
+        customer_contact,
+        customer_name,
+        order_date
+        ) values (
+        #{ menuName },
+        #{ customerContact },
+        #{ customerName },
+        now() <!-- 현재 날짜 및 시간을 기본 값으로 사용 -->
+        )
+    </insert>
 
 </mapper>

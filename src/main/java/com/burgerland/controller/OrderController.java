@@ -15,25 +15,43 @@ public class OrderController {
         orderService = new OrderService();
     }
 
-    // 구현 예정 : 주문 과정
-    // 1. 메뉴 목록을 조회한다.
-    // 2. 메뉴의 이름을 선택한다.
-    // 3. 주문 개수와 가격의 최종 합산을 한다.
-    // 4. 최종 출력은
-    // {주문 번호}, {메뉴 이름}, {메뉴 가격}, {메뉴별 주문 개수}, {주문일}
-    // 내용이 담긴 영수증이 출력된다.
+    public void registOrder(Map<String, String> parameter) {
+        // 메뉴 이름 가져오기
+        String menuName = parameter.get("menuName");
+        if (menuName == null) {
+            // 예외 처리 또는 오류 메시지 출력
+            System.err.println("메뉴 이름이 없습니다.");
+            return;
+        }
+
+        // 주문 고객 연락처 입력받기
+        String custContact = parameter.get("custContact");
+        String custName = parameter.get("custName");
+        OrderDTO order = new OrderDTO();
+        order.setMenuName(menuName);
+        order.setCustomerContact(custContact);
+        order.setCustomerName(custName);
+
+        if (orderService.registOrder(order)) {
+            orderPrintResult.printSuccessMessage("insert");
+        } else {
+            orderPrintResult.printErrorMessage("insert");
+        }
+    }
+
 //    public void registOrder(Map<String, String> parameter) {
 //        String menuName = parameter.get("menuName");
 //        int custContact = Integer.parseInt(parameter.get("custContact"));
 //
 //        OrderDTO order = new OrderDTO();
-//        order.setOrderName(menuName);
-//        order.setOrderContact(custContact);
+//        order.setMenuName(menuName);
+//        order.setCustomerContact(custContact);
 //
 //        if (orderService.registOrder(order)) {
-//            orderPrintResult.printSuccessMessage("order")
+//            orderPrintResult.printSuccessMessage("insert");
+//        } else {
+//            orderPrintResult.printErrorMessage("insert");
 //        }
-//
 //    }
 }
 

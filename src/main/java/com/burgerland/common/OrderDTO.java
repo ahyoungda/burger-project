@@ -1,12 +1,18 @@
 package com.burgerland.common;
 
+import lombok.*;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+
 public class OrderDTO {
-    private String customerName;
-    private String customerGrade;
 
     private int orderCode;
-    private String orderDate;
-
+    private String customerName;
     private String menuName;
-    private int menuPrice;
+    private String orderDate;
+    private String customerContact;
 }
