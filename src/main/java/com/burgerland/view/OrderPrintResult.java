@@ -31,7 +31,7 @@ public class OrderPrintResult {
 //                    System.out.println("메뉴보기 출력 테스트");
                     break;
                 case 2:
-                    orderController.registOrder(inputOrderInfo());
+//                    orderController.registOrder(inputOrderInfo());
                     break;
                 case 3:
 //                    orderController.showMyOrder();

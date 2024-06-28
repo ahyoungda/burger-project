@@ -17,7 +17,7 @@ public interface BurgerMapper {
     int insertMenu(MenuDTO menu);
 
     int deleteCust(int custCode);
-    int updateMenu(Map<String, Object> menu);
+    int updateMenu(Map<String, String> menu);
 
     int deleteMenu(int menuCode );
 }

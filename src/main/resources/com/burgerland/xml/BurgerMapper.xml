@@ -51,19 +51,25 @@
     <update id="updateMenu" parameterType="hashmap">
         update
         menu
-        <set>
-            <if test="name != null">
-                menu_name = #{ MenuName },
-            </if>
-            <if test="price != null">
-                menu_price = #{ MenuPrice },
-
-            </if>
-            <if test="category != null">
+        set
+                menu_name = #{ menuName },
+                menu_price = #{ menuPrice },
                 category = #{ category }
-            </if>
-        </set>
         where menu_code = #{menuCode}
+
+<!--        <set>-->
+<!--            <if test="name != null">-->
+<!--                menu_name = #{ menuName },-->
+<!--            </if>-->
+<!--            <if test="price != null">-->
+<!--                menu_price = #{ menuPrice },-->
+
+<!--            </if>-->
+<!--            <if test="category != null">-->
+<!--                category = #{ category }-->
+<!--            </if>-->
+<!--        </set>-->
+<!--        where menu_code = #{menuCode}-->
     </update>
 
     <delete id="deleteMenu" parameterType="com.burgerland.common.MenuDTO">

@@ -80,22 +80,10 @@ public class MenuController {
 
     }
 
-    public void updateMenu(Map<String, String> Object) {
-
-        MenuDTO menu = new MenuDTO();
-
-        String menuName = Object.get("menuName");
-        String menuPrice = Object.get("menuPrice");
-        String category = Object.get("category");
-
-//        MenuDTO menu = new MenuDTO();
-        menu.setMenuName(menuName);
-        menu.setMenuPrice(Integer.parseInt(menuPrice));
-        menu.setCategory(category);
+    public void updateMenu(Map<String, String> menuMap) {
 
 
-
-        if (menuService.insertMenu(menu)) {
+        if (menuService.updateMenu(menuMap)) {
             menuPrintResult.printSuccessMessage("update");
         } else {
             menuPrintResult.printErrorMessage("update");
@@ -105,7 +93,6 @@ public class MenuController {
     }
 
     public static Map<String, String> modifyMenu() {
-
 
         Scanner sc = new Scanner(System.in);
         System.out.println("수정할 메뉴의 코드를 입력하세요");
@@ -119,15 +106,12 @@ public class MenuController {
         sc.nextLine();
         String category = sc.nextLine();
 
-        Map<String, String> Object = new HashMap<>();
-        Object.put("menuCode", String.valueOf(menuCode));
-        Object.put("menuName", menuName);
-        Object.put("menuPrice", String.valueOf(menuPrice));
-        Object.put("category", category);
-        return Object;
-
-
-
+        Map<String, String> menuMap = new HashMap<>();
+        menuMap.put("menuCode", String.valueOf(menuCode));
+        menuMap.put("menuName", menuName);
+        menuMap.put("menuPrice", String.valueOf(menuPrice));
+        menuMap.put("category", category);
+        return menuMap;
 
     }
 

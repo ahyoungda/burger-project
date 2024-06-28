@@ -14,7 +14,7 @@ public class MenuService {
 
     private BurgerMapper mapper;
 
-    public void viewMenu() {
+    public  List<MenuDTO> viewMenu() {
 
         SqlSession sqlSession = getSqlSession();
 
@@ -22,13 +22,9 @@ public class MenuService {
 
         List<MenuDTO> menuList = mapper.viewMenu();
 
-        for (MenuDTO burger : menuList) {
-
-            System.out.println(burger);
-
-        }
-
         sqlSession.close();
+
+        return menuList;
 
 
     }
@@ -61,16 +57,17 @@ public class MenuService {
 
 
 
-    public boolean updateMenu(Map<String, Object> menu) {
+    public boolean updateMenu(Map<String, String> menu) {
 
 
         SqlSession sqlSession = getSqlSession();
 
+        // 매개변수 전달 확인용 출력
+        System.out.println(menu.get("menuName"));
+
         mapper = sqlSession.getMapper(BurgerMapper.class);
 
-        System.out.println(menu);
         int result = mapper.updateMenu(menu);
-
 
 
         if (result > 0) {

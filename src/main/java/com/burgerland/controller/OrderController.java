@@ -22,18 +22,18 @@ public class OrderController {
     // 4. 최종 출력은
     // {주문 번호}, {메뉴 이름}, {메뉴 가격}, {메뉴별 주문 개수}, {주문일}
     // 내용이 담긴 영수증이 출력된다.
-    public void registOrder(Map<String, String> parameter) {
-        String menuName = parameter.get("menuName");
-        int custContact = Integer.parseInt(parameter.get("custContact"));
-
-        OrderDTO order = new OrderDTO();
-        order.setOrderName(menuName);
-        order.setOrderContact(custContact);
-
-        if (orderService.registOrder(order)) {
-            orderPrintResult.printSuccessMessage("order")
-        }
-
-    }
+//    public void registOrder(Map<String, String> parameter) {
+//        String menuName = parameter.get("menuName");
+//        int custContact = Integer.parseInt(parameter.get("custContact"));
+//
+//        OrderDTO order = new OrderDTO();
+//        order.setOrderName(menuName);
+//        order.setOrderContact(custContact);
+//
+//        if (orderService.registOrder(order)) {
+//            orderPrintResult.printSuccessMessage("order")
+//        }
+//
+//    }
 }
 
