@@ -36,7 +36,7 @@ public class CustomerController {
     // 고객 정보 삭제 - 번호 입력 메소드
     public static Map<String, String> inputCustCode() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("삭제할 메뉴코드를 입력하세요: ");
+        System.out.println("삭제할 고객코드를 입력하세요: ");
         String custCode = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();

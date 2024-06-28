@@ -1,6 +1,7 @@
 package com.burgerland.service;
 
 import com.burgerland.common.MenuDTO;
+import com.burgerland.view.MenuPrintResult;
 import com.burgerland.xml.BurgerMapper;
 import org.apache.ibatis.session.SqlSession;
 
@@ -19,9 +20,9 @@ public class MenuService {
 
         mapper = sqlSession.getMapper(BurgerMapper.class);
 
-        List<MenuDTO> MenuList = mapper.viewMenu();
+        List<MenuDTO> menuList = mapper.viewMenu();
 
-        for (MenuDTO burger : MenuList) {
+        for (MenuDTO burger : menuList) {
 
             System.out.println(burger);
 
@@ -32,7 +33,9 @@ public class MenuService {
 
     }
 
-    public void insertMenu(MenuDTO menu) {
+    public boolean insertMenu(MenuDTO menu) {
+
+
 
         SqlSession sqlSession = getSqlSession();
 
@@ -53,8 +56,10 @@ public class MenuService {
 
         sqlSession.close();
 
-
+        return result > 0 ? true : false;
     }
+
+
 
     public boolean updateMenu(Map<String, Object> menu) {
 
@@ -84,13 +89,13 @@ public class MenuService {
 
     }
 
-    public void deleteMenu(Map<String, Object> menu) {
+    public boolean deleteMenu(int menuCode) {
 
         SqlSession sqlSession = getSqlSession();
 
         mapper = sqlSession.getMapper(BurgerMapper.class);
 
-        int result = mapper.deleteMenu(menu);
+        int result = mapper.deleteMenu(menuCode);
 
         if (result > 0) {
 
@@ -104,6 +109,8 @@ public class MenuService {
         }
 
         sqlSession.close();
+
+        return result > 0 ? true : false;
 
 
     }

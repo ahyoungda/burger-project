@@ -1,6 +1,5 @@
 package com.burgerland.xml;
 
-import com.burgerland.common.BurgerDTO;
 import com.burgerland.common.MenuDTO;
 
 import com.burgerland.common.CustomerDTO;
@@ -20,5 +19,5 @@ public interface BurgerMapper {
     int deleteCust(int custCode);
     int updateMenu(Map<String, Object> menu);
 
-    int deleteMenu(Map<String, Object> menu);
+    int deleteMenu(int menuCode );
 }
